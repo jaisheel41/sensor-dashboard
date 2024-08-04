@@ -1,0 +1,42 @@
+.chart-page {
+    padding: 20px;
+    text-align: center;
+    height: 100vh;
+  }
+  
+  .chart-title {
+    margin-bottom: 20px;
+  }
+  
+  .chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .filter-button.selected {
+    background-color: #0056b3;
+  }
+  
+  .legend-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  

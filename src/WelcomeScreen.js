@@ -1,18 +1,23 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import './WelcomeScreen.css';
 
 const WelcomeScreen = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    history.push('/temperature');
+    navigate('/temperature');
   };
 
   return (
-    <div>
-      <h1>Hi, how are you?</h1>
-      <p>Ready to see the visualizations?</p>
-      <button onClick={handleButtonClick}>Okay</button>
+    <div className="welcome-container">
+      <div className="welcome-content">
+        <h1>Hi!</h1>
+        <p>Ready to see the visualizations?</p>
+        <button onClick={handleButtonClick} className="welcome-button">
+          Okay
+        </button>
+      </div>
     </div>
   );
 };

@@ -16,7 +16,10 @@ const fetchData = async () => {
 
   try {
     const data = await dynamodb.scan(params).promise();
-    return data.Items;
+    return data.Items.map(item => ({
+      ...item,
+      timestamp: new Date(item.timestamp).getTime(), // Ensure timestamp is in milliseconds
+    }));
   } catch (error) {
     console.error('Error fetching data: ', error);
     console.error('Error details: ', error.stack);
