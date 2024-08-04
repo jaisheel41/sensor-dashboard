@@ -6,7 +6,8 @@ module.exports = {
       webpackConfig.resolve.fallback = {
         ...webpackConfig.resolve.fallback,
         path: require.resolve('path-browserify'),
-        os: require.resolve('os-browserify/browser'), // Add this line
+        os: require.resolve('os-browserify/browser'),
+        crypto: require.resolve('crypto-browserify'),
       };
       return webpackConfig;
     },
