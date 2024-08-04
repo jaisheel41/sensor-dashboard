@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import fetchData from './fetchData';
 import TemperatureChart from './TemperatureChart';
+import HumidityChart from './HumidityChart';
+import AirPressureChart from './AirPressureChart';
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -19,7 +21,8 @@ const App = () => {
     <div>
       <h1>Live Data Visualization</h1>
       <TemperatureChart data={data} />
-      {/* Add other charts for humidity and air pressure */}
+      <HumidityChart data={data} />
+      <AirPressureChart data={data} />
     </div>
   );
 };

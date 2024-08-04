@@ -1,8 +1,8 @@
-// src/TemperatureChart.js
+// src/HumidityChart.js
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const TemperatureChart = ({ data }) => {
+const HumidityChart = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={400}>
       <LineChart
@@ -14,10 +14,10 @@ const TemperatureChart = ({ data }) => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
+        <Line type="monotone" dataKey="humidity" stroke="#82ca9d" />
       </LineChart>
     </ResponsiveContainer>
   );
 };
 
-export default TemperatureChart;
+export default HumidityChart;
