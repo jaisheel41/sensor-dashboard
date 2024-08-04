@@ -1,4 +1,3 @@
-// craco.config.js
 const path = require('path');
 
 module.exports = {
@@ -7,6 +6,7 @@ module.exports = {
       webpackConfig.resolve.fallback = {
         ...webpackConfig.resolve.fallback,
         path: require.resolve('path-browserify'),
+        os: require.resolve('os-browserify/browser'), // Add this line
       };
       return webpackConfig;
     },
