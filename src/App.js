@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useEffect, useState } from 'react';
+import fetchData from './fetchData';
+import TemperatureChart from './TemperatureChart';
 
-function App() {
+const App = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      const newData = await fetchData();
+      setData(newData);
+    }, 5000); // Fetch data every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Live Data Visualization</h1>
+      <TemperatureChart data={data} />
+      {/* Add other charts for humidity and air pressure */}
     </div>
   );
-}
+};
 
 export default App;
