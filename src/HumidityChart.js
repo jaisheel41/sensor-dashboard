@@ -1,23 +1,29 @@
-// src/HumidityChart.js
-import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import fetchData from './fetchData';
+import HumidityChart from './HumidityChart';
 
-const HumidityChart = ({ data }) => {
+const HumidityChartPage = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      const newData = await fetchData();
+      setData(newData);
+    };
+    fetchDataAsync();
+  }, []);
+
   return (
-    <ResponsiveContainer width="100%" height={400}>
-      <LineChart
-        data={data}
-        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="timestamp" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="humidity" stroke="#82ca9d" />
-      </LineChart>
-    </ResponsiveContainer>
+    <div>
+      <h1>Humidity</h1>
+      <HumidityChart data={data} />
+      <nav>
+        <Link to="/temperature">Go to Temperature Chart</Link>
+        <Link to="/air-pressure">Go to Air Pressure Chart</Link>
+      </nav>
+    </div>
   );
 };
 
-export default HumidityChart;
+export default HumidityChartPage;

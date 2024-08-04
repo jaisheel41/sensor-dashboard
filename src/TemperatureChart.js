@@ -1,23 +1,29 @@
-// src/TemperatureChart.js
-import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import fetchData from './fetchData';
+import TemperatureChart from './TemperatureChart';
 
-const TemperatureChart = ({ data }) => {
+const TemperatureChartPage = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      const newData = await fetchData();
+      setData(newData);
+    };
+    fetchDataAsync();
+  }, []);
+
   return (
-    <ResponsiveContainer width="100%" height={400}>
-      <LineChart
-        data={data}
-        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="timestamp" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
-      </LineChart>
-    </ResponsiveContainer>
+    <div>
+      <h1>Temperature</h1>
+      <TemperatureChart data={data} />
+      <nav>
+        <Link to="/humidity">Go to Humidity Chart</Link>
+        <Link to="/air-pressure">Go to Air Pressure Chart</Link>
+      </nav>
+    </div>
   );
 };
 
-export default TemperatureChart;
+export default TemperatureChartPage;

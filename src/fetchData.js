@@ -19,6 +19,7 @@ const fetchData = async () => {
     return data.Items;
   } catch (error) {
     console.error('Error fetching data: ', error);
+    console.error('Error details: ', error.stack);
     return [];
   }
 };
