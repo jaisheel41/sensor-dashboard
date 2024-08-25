@@ -43,3 +43,23 @@ Your app is ready to be deployed!
 ## npm run eject
 Note: This is a one-way operation. Once you eject, you can't go back!
 Ejecting allows you to have full control over the build configuration.
+
+# AWS Amplify Deployment
+To deploy the application using AWS Amplify, follow these steps:
+
+### Deploy your application:
+amplify publish
+
+This command will build and deploy your application to the Amplify Console.
+
+### Setting Environment Variables:
+
+Make sure to set the following environment variables in the Amplify Console to ensure your application can connect to AWS services:
+
+REACT_APP_AWS_REGION
+REACT_APP_AWS_ACCESS_KEY_ID
+REACT_APP_AWS_SECRET_ACCESS_KEY
+
+### Monitor and Update:
+
+Amplify will automatically handle updates every time you push changes to your connected Git repository.
