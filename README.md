@@ -1,4 +1,4 @@
-#Real-Time Data Visualization Web Application
+###Real-Time Data Visualization Web Application
 
 This project is a web application built using React and AWS Amplify for real-time data visualization. It displays temperature, humidity, and air pressure data from multiple sensors in different locations, providing users with live, interactive graphs.
 
